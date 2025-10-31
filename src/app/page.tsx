@@ -79,7 +79,7 @@ export default function Home() {
               icon: BookOpen
             }
           ]}
-          imageSrc="https://images.pexels.com/photos/8471703/pexels-photo-8471703.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+          imageSrc="https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_346q1PwyWBLFgxn5R5gWYFVRO0Y/uploaded-1761587831101-j4vav288.png"
           imageAlt="Traditional pizza making process"
         />
       </div>
@@ -95,19 +95,19 @@ export default function Home() {
               id: "01",
               title: "Margherita Classic",
               description: "San Marzano tomatoes, fresh mozzarella, basil, extra virgin olive oil",
-              imageSrc: "https://images.pexels.com/photos/8471703/pexels-photo-8471703.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              imageSrc: "https://images.pexels.com/photos/2325447/pexels-photo-2325447.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
             },
             {
               id: "02",
               title: "Pepperoni Supreme",
               description: "Premium pepperoni, mozzarella, our signature tomato sauce",
-              imageSrc: "https://images.pexels.com/photos/1878346/pexels-photo-1878346.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              imageSrc: "https://images.pexels.com/photos/1109541/pexels-photo-1109541.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
             },
             {
               id: "03",
               title: "Tony's Special",
               description: "Italian sausage, mushrooms, bell peppers, onions, olives",
-              imageSrc: "https://images.pexels.com/photos/4600696/pexels-photo-4600696.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              imageSrc: "https://images.pexels.com/photos/2245436/pexels-photo-2245436.png?auto=compress&cs=tinysrgb&h=650&w=940"
             }
           ]}
         />
@@ -127,7 +127,7 @@ export default function Home() {
               price: "$16.99",
               rating: 5,
               reviewCount: "892",
-              imageSrc: "https://images.pexels.com/photos/29626980/pexels-photo-29626980.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              imageSrc: "https://images.pexels.com/photos/34514/spot-runs-start-la.jpg?auto=compress&cs=tinysrgb&h=650&w=940",
               imageAlt: "Margherita pizza"
             },
             {
@@ -137,7 +137,7 @@ export default function Home() {
               price: "$18.99",
               rating: 5,
               reviewCount: "1.2k",
-              imageSrc: "https://images.pexels.com/photos/19260821/pexels-photo-19260821.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              imageSrc: "https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
               imageAlt: "Pepperoni pizza"
             },
             {
@@ -147,7 +147,7 @@ export default function Home() {
               price: "$22.99",
               rating: 4,
               reviewCount: "567",
-              imageSrc: "https://images.pexels.com/photos/6493111/pexels-photo-6493111.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              imageSrc: "https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
               imageAlt: "Four seasons pizza"
             }
           ]}
@@ -167,7 +167,7 @@ export default function Home() {
               role: "Local Resident",
               company: "Downtown",
               rating: 5,
-              imageSrc: "https://images.pexels.com/photos/3811663/pexels-photo-3811663.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              imageSrc: "https://images.pexels.com/photos/2531156/pexels-photo-2531156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
               imageAlt: "Portrait of Maria Rodriguez"
             },
             {
@@ -176,7 +176,7 @@ export default function Home() {
               role: "Food Blogger",
               company: "Taste & Tell",
               rating: 5,
-              imageSrc: "https://images.pexels.com/photos/6969962/pexels-photo-6969962.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              imageSrc: "https://images.pexels.com/photos/1644888/pexels-photo-1644888.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
               imageAlt: "Portrait of James Wilson"
             },
             {
@@ -185,7 +185,7 @@ export default function Home() {
               role: "Regular Customer",
               company: "Midtown",
               rating: 5,
-              imageSrc: "https://images.pexels.com/photos/5638675/pexels-photo-5638675.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              imageSrc: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
               imageAlt: "Portrait of Sarah Chen"
             },
             {
@@ -194,7 +194,7 @@ export default function Home() {
               role: "Pizza Enthusiast",
               company: "Northside",
               rating: 5,
-              imageSrc: "https://images.pexels.com/photos/6188309/pexels-photo-6188309.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              imageSrc: "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
               imageAlt: "Portrait of Mike Thompson"
             }
           ]}
