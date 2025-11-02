@@ -77,16 +77,16 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Tony's Pizza - Authentic Italian Pizza Delivery",
-  description: "Fresh wood-fired pizzas made with authentic Italian ingredients. Order online for fast delivery. Family recipes passed down for three generations.",
+  title: 'Tony's Pizza's Pizza - Authentic Italian Pizza Delivery",
+  description: 'Fresh wood-fired pizzas made with authentic Italian ingredients. Order online for fast delivery. Family recipes passed down for three generations.',
   keywords: "pizza delivery, Italian pizza, wood fired pizza, authentic pizza, pizza restaurant, Tony's Pizza",
   metadataBase: new URL("https://example.com"),
   alternates: {
     canonical: "https://example.com"
   },
   openGraph: {
-    title: "Tony's Pizza - Authentic Italian Pizza Delivery",
-    description: "Fresh wood-fired pizzas made with authentic Italian ingredients. Order online for fast delivery.",
+    title: 'Tony's Pizza's Pizza - Authentic Italian Pizza Delivery",
+    description: 'Fresh wood-fired pizzas made with authentic Italian ingredients. Order online for fast delivery. Family recipes passed down for three generations.',
     siteName: "Tony's Pizza",
     images: [
       {
@@ -98,8 +98,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tony's Pizza - Authentic Italian Pizza Delivery",
-    description: "Fresh wood-fired pizzas made with authentic Italian ingredients. Order online for fast delivery.",
+    title: 'Tony's Pizza's Pizza - Authentic Italian Pizza Delivery",
+    description: 'Fresh wood-fired pizzas made with authentic Italian ingredients. Order online for fast delivery. Family recipes passed down for three generations.',
     images: ["https://images.pexels.com/photos/8471703/pexels-photo-8471703.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"]
   },
   robots: {
@@ -500,11 +500,27 @@ export default function RootLayout({
     }, '*');
     
     const handleInput = () => {
-      if (element.textContent !== originalContent) {
+      const elementInfo = getElementInfo(element);
+      const currentText = element.textContent;
+
+      window.parent.postMessage({
+        type: 'webild-element-changed',
+        data: {
+          type: 'updateText',
+          selector: elementInfo.selector,
+          oldValue: originalContent,
+          newValue: currentText,
+          elementType: elementInfo.elementType,
+          sectionId: elementInfo.sectionId,
+          timestamp: Date.now()
+        }
+      }, '*');
+      
+      if (currentText !== originalContent) {
         window.parent.postMessage({
           type: 'webild-text-changed',
           data: { 
-            selector: getElementInfo(element).selector,
+            selector: elementInfo.selector,
             hasChanges: true
           }
         }, '*');
@@ -960,19 +976,18 @@ export default function RootLayout({
       try {
         let element = null;
         
-        if (selector) {
-          element = document.querySelector(selector);
-        }
-        
-        if (!element && selectedElement && isTextElement(selectedElement)) {
+        if (selectedElement && isTextElement(selectedElement)) {
           element = selectedElement;
-          const newSelector = getUniqueSelector(element, true);
-          if (newSelector) {
-            selectedElement.dataset.webildSelector = newSelector;
+        }
+        else if (selector) {
+          try {
+            element = document.querySelector(selector);
+          } catch (err) {
+            console.warn('[Webild] Invalid selector:', selector);
           }
         }
         
-        if (!element && oldValue && sectionId) {
+        if (!element && oldValue && oldValue.trim() && sectionId) {
           const sectionElement = document.querySelector('[data-section="' + sectionId + '"]');
           if (sectionElement) {
             const textElements = sectionElement.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, a, button, div');
@@ -989,12 +1004,15 @@ export default function RootLayout({
             }
           }
         }
+        
         if (element && isTextElement(element)) {
-          element.textContent = newValue; 
+          element.textContent = newValue;
+          const finalSelector = element.dataset.webildSelector || getUniqueSelector(element, true);
+          
           window.parent.postMessage({
             type: 'webild-text-update-success',
             data: {
-              selector: element.dataset.webildSelector || getUniqueSelector(element, true),
+              selector: finalSelector,
               newValue: newValue
             }
           }, '*');
@@ -1005,7 +1023,6 @@ export default function RootLayout({
           }, '*');
         }
       } catch (error) {
-        console.error('[Webild] Error updating text:', error);
         window.parent.postMessage({
           type: 'webild-text-update-failed',
           data: { selector, newValue, error: error.message }
@@ -1044,8 +1061,7 @@ export default function RootLayout({
 
       try {
         element = document.querySelector(selector);
-      } catch (error) {
-        console.error('[Webild] Invalid selector for image replacement:', selector, error);
+      } catch {
         window.parent.postMessage({
           type: 'webild-image-replacement-error',
           data: { selector, message: 'Invalid selector: ' + error.message, success: false }
